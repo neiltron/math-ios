@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionAttachBacktraceToFeedback'/>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionDisableInAppUpdates'/>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionLogToConsole'/>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionLogToSTDERR'/>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionReinstallCrashHandlers'/>
+<constant declared_type='NSString*' type='@' const='true' name='TFOptionSendLogOnlyOnCrash'/>
+<string_constant value='1.2.6' name='TESTFLIGHT_SDK_VERSION' nsstring='true'/>
+<function name='TFLog' variadic='true'>
+<arg declared_type='NSString*' type='@' name='format'/>
+<retval declared_type='void' type='v'/>
+</function>
+<function name='TFLogv'>
+<arg declared_type='NSString*' type='@' name='format'/>
+<arg declared_type='va_list' type='*' name='arg_list'/>
+<retval declared_type='void' type='v'/>
+</function>
+<class name='TestFlight'>
+<method selector='addCustomEnvironmentInformation:forKey:' class_method='true'>
+<arg declared_type='NSString*' type='@' name='information' index='0'/>
+<arg declared_type='NSString*' type='@' name='key' index='1'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='openFeedbackView' class_method='true'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='passCheckpoint:' class_method='true'>
+<arg declared_type='NSString*' type='@' name='checkpointName' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDeviceIdentifier:' class_method='true'>
+<arg declared_type='NSString*' type='@' name='deviceIdentifer' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setOptions:' class_method='true'>
+<arg declared_type='NSDictionary*' type='@' name='options' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='submitFeedback:' class_method='true'>
+<arg declared_type='NSString*' type='@' name='feedback' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='takeOff:' class_method='true'>
+<arg declared_type='NSString*' type='@' name='applicationToken' index='0'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+</signatures>

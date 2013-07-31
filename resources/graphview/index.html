@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D#M</title>
+    <link href='css/nv.d3.css' rel='stylesheet'>
+    <!-- <link href='fonts/Otari-Regular-Web/stylesheet.css' rel='stylesheet'> -->
+    <link href='css/style.css' rel='stylesheet'>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
+    <link href='https://mathematics.io/oembed?url=https://mathematics.io/item/5064b07fa622be0200000001' rel='alternate' title='Math' type='application/json+oembed'>
+  </head>
+  <body>
+    <div class='embed' id='container'>
+      <div id='content'>
+        <small id='display_type'>
+          Displaying:
+          <strong></strong>
+        </small>
+        <div class='lines' id='graph'>
+          <svg style='height: 80%'></svg>
+        </div>
+      </div>
+    </div>
+    <script src='js/zepto.min.js' type='text/javascript'></script>
+    <script src='js/d3.v2.min.js' type='text/javascript'></script>
+    <script src='js/nv.d3.js' type='text/javascript'></script>
+    <script>
+  //<![CDATA[
+    var items = [];
+    var records = {};
+
+    $(document).ready(function ($) {
+      var items = $('#items');
+      items.find('a').bind('click', function (e) {
+        if (items.hasClass('active')) {
+          e.preventDefault();
+
+          $('#item_name').val($(e.target).text());
+          $('#amount').focus();
+        }
+      })
+
+      isNumber = function (value) {
+        if ((undefined === value) || (null === value)) {
+          return false;
+        }
+        if (typeof value == 'number') {
+          return true;
+        }
+        return !isNaN(value - 0);
+      }
+
+      //get items
+      drawGraph = function () {
+        var chart;
+        if ($('#graph').length) {
+          $('#display_type strong').text(display_type)
+          nv.addGraph(function() {
+            chart = nv.models.lineChart()
+                      .tooltipContent(function (key, x, y, e, graph) {
+                        var tooltip = [];
+
+                        if (key != '' && typeof key !== 'undefined') {
+                          tooltip.push('<p>' + key + '</p>');
+                        }
+
+                        tooltip.push('<p>' + y + ' at ' + x + '</p>');
+
+                        return tooltip;
+                      });
+
+            chart.xAxis
+              .tickFormat(function(d) {
+                return d3.time.format('%_m/%d')(new Date(d * 1000))
+              });
+
+            chart.yAxis
+              .tickFormat(d3.format(',.0f'))
+
+            if (typeof graph_data['values'] === 'undefined') {
+              graph_data = $.map(graph_data, function (item, i) {
+                return return_values(item, i);
+              })
+            } else {
+              graph_data = [return_values(graph_data)];
+            }
+
+            d3.select('#graph svg')
+              .datum(graph_data)
+              .transition().duration(500)
+              .call(chart);
+
+            //TODO: Figure out a good way to do this automatically
+            nv.utils.windowResize(chart.update);
+
+            //append legend dots to the items table
+            if (typeof category_id !== 'undefined') {
+              $('table.records tbody tr').each(function(i, item) {
+                $(item).find('td').first().prepend("<td><span style='height:10px;width:10px;display:block;float:left;border-radius:5px;margin:5px 5px 0 0;background:" + graph_data[i].color + "'></span></td>")
+              });
+            }
+
+            return chart;
+          });
+        }
+      };
+
+
+      function return_values (data, i) {
+        var key = data.key || '';
+
+        data = $(data.values).map(function(i, value) {
+          if (isNumber(value[1])) {
+            return { key: data.name, x: value[0], y: value[1] };
+          }
+        })
+
+        var colors = [
+          '#faa',
+          '#f66',
+          '#333',
+          '#366',
+          '#399',
+          '#9cc'
+        ];
+
+        return {
+          area: false,
+          values: data,
+          color: colors[i] || '#faa',
+          key: key
+        }
+      }
+    })
+  //]]>
+</script>
+  </body>
+</html>

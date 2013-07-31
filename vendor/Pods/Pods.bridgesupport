@@ -1,0 +1,1240 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingErrorDomain'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingOperationDidFinishNotification'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingOperationDidStartNotification'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingOperationFailingURLRequestErrorKey'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingOperationFailingURLResponseErrorKey'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingReachabilityDidChangeNotification'/>
+<constant const='true' type='@' declared_type='NSString*' name='AFNetworkingReachabilityNotificationStatusItem'/>
+<constant const='true' type='d' declared_type='NSTimeInterval' name='kAFUploadStream3GSuggestedDelay'/>
+<constant const='true' type='I' declared_type='NSUInteger' name='kAFUploadStream3GSuggestedPacketSize'/>
+<enum value='0' name='AFFormURLParameterEncoding'/>
+<enum value='1' name='AFJSONParameterEncoding'/>
+<enum value='0' name='AFNetworkReachabilityStatusNotReachable'/>
+<enum value='1' name='AFNetworkReachabilityStatusReachableViaWWAN'/>
+<enum value='2' name='AFNetworkReachabilityStatusReachableViaWiFi'/>
+<enum value='-1' name='AFNetworkReachabilityStatusUnknown'/>
+<enum value='2' name='AFPropertyListParameterEncoding'/>
+<enum value='2' name='AFSSLPinningModeCertificate'/>
+<enum value='0' name='AFSSLPinningModeNone'/>
+<enum value='1' name='AFSSLPinningModePublicKey'/>
+<function name='AFContentTypesFromHTTPHeader'>
+<arg type='@' declared_type='NSString*' name='string'/>
+<retval type='@' declared_type='NSSet*'/>
+</function>
+<function name='AFQueryStringFromParametersWithEncoding'>
+<arg type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg type='I' declared_type='NSStringEncoding' name='encoding'/>
+<retval type='@' declared_type='NSString*'/>
+</function>
+<class name='AFHTTPClient'>
+<method selector='HTTPRequestOperationWithRequest:success:failure:'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='AFHTTPRequestOperation*'/>
+</method>
+<method selector='allowsInvalidSSLCertificate'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='baseURL'>
+<retval type='@' declared_type='NSURL*'/>
+</method>
+<method selector='cancelAllHTTPOperationsWithMethod:path:'>
+<arg index='0' type='@' declared_type='NSString*' name='method'/>
+<arg index='1' type='@' declared_type='NSString*' name='path'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='clearAuthorizationHeader'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='clientWithBaseURL:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURL*' name='url'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='defaultSSLPinningMode'>
+<retval type='i' declared_type='AFURLConnectionOperationSSLPinningMode'/>
+</method>
+<method selector='defaultValueForHeader:'>
+<arg index='0' type='@' declared_type='NSString*' name='header'/>
+<retval type='@' declared_type='NSString*'/>
+</method>
+<method selector='deletePath:parameters:success:failure:'>
+<arg index='0' type='@' declared_type='NSString*' name='path'/>
+<arg index='1' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='enqueueBatchOfHTTPRequestOperations:progressBlock:completionBlock:'>
+<arg index='0' type='@' declared_type='NSArray*' name='operations'/>
+<arg index='1' type='@?' declared_type='void (^)(NSUInteger, NSUInteger)' function_pointer='true' name='progressBlock'>
+<arg type='I' declared_type='NSUInteger'/>
+<arg type='I' declared_type='NSUInteger'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSArray *)' function_pointer='true' name='completionBlock'>
+<arg type='@' declared_type='NSArray*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='enqueueBatchOfHTTPRequestOperationsWithRequests:progressBlock:completionBlock:'>
+<arg index='0' type='@' declared_type='NSArray*' name='urlRequests'/>
+<arg index='1' type='@?' declared_type='void (^)(NSUInteger, NSUInteger)' function_pointer='true' name='progressBlock'>
+<arg type='I' declared_type='NSUInteger'/>
+<arg type='I' declared_type='NSUInteger'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSArray *)' function_pointer='true' name='completionBlock'>
+<arg type='@' declared_type='NSArray*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='enqueueHTTPRequestOperation:'>
+<arg index='0' type='@' declared_type='AFHTTPRequestOperation*' name='operation'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='getPath:parameters:success:failure:'>
+<arg index='0' type='@' declared_type='NSString*' name='path'/>
+<arg index='1' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='initWithBaseURL:'>
+<arg index='0' type='@' declared_type='NSURL*' name='url'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='multipartFormRequestWithMethod:path:parameters:constructingBodyWithBlock:'>
+<arg index='0' type='@' declared_type='NSString*' name='method'/>
+<arg index='1' type='@' declared_type='NSString*' name='path'/>
+<arg index='2' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='3' type='@?' declared_type='void (^)(id)' function_pointer='true' name='block'>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='NSMutableURLRequest*'/>
+</method>
+<method selector='networkReachabilityStatus'>
+<retval type='i' declared_type='AFNetworkReachabilityStatus'/>
+</method>
+<method selector='operationQueue'>
+<retval type='@' declared_type='NSOperationQueue*'/>
+</method>
+<method selector='parameterEncoding'>
+<retval type='i' declared_type='AFHTTPClientParameterEncoding'/>
+</method>
+<method selector='patchPath:parameters:success:failure:'>
+<arg index='0' type='@' declared_type='NSString*' name='path'/>
+<arg index='1' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='postPath:parameters:success:failure:'>
+<arg index='0' type='@' declared_type='NSString*' name='path'/>
+<arg index='1' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='putPath:parameters:success:failure:'>
+<arg index='0' type='@' declared_type='NSString*' name='path'/>
+<arg index='1' type='@' declared_type='NSDictionary*' name='parameters'/>
+<arg index='2' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='registerHTTPOperationClass:'>
+<arg index='0' type='#' declared_type='Class' name='operationClass'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='requestWithMethod:path:parameters:'>
+<arg index='0' type='@' declared_type='NSString*' name='method'/>
+<arg index='1' type='@' declared_type='NSString*' name='path'/>
+<arg index='2' type='@' declared_type='NSDictionary*' name='parameters'/>
+<retval type='@' declared_type='NSMutableURLRequest*'/>
+</method>
+<method selector='setAllowsInvalidSSLCertificate:'>
+<arg index='0' type='B' declared_type='BOOL' name='allowsInvalidSSLCertificate'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setAuthorizationHeaderWithToken:'>
+<arg index='0' type='@' declared_type='NSString*' name='token'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setAuthorizationHeaderWithUsername:password:'>
+<arg index='0' type='@' declared_type='NSString*' name='username'/>
+<arg index='1' type='@' declared_type='NSString*' name='password'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultCredential:'>
+<arg index='0' type='@' declared_type='NSURLCredential*' name='credential'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultHeader:value:'>
+<arg index='0' type='@' declared_type='NSString*' name='header'/>
+<arg index='1' type='@' declared_type='NSString*' name='value'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultSSLPinningMode:'>
+<arg index='0' type='i' declared_type='AFURLConnectionOperationSSLPinningMode' name='defaultSSLPinningMode'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setParameterEncoding:'>
+<arg index='0' type='i' declared_type='AFHTTPClientParameterEncoding' name='parameterEncoding'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setReachabilityStatusChangeBlock:'>
+<arg index='0' type='@?' declared_type='void (^)(AFNetworkReachabilityStatus)' function_pointer='true' name='block'>
+<arg type='i' declared_type='AFNetworkReachabilityStatus'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setStringEncoding:'>
+<arg index='0' type='I' declared_type='NSStringEncoding' name='stringEncoding'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='stringEncoding'>
+<retval type='I' declared_type='NSStringEncoding'/>
+</method>
+<method selector='unregisterHTTPOperationClass:'>
+<arg index='0' type='#' declared_type='Class' name='operationClass'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='AFHTTPRequestOperation'>
+<method selector='acceptableContentTypes' class_method='true'>
+<retval type='@' declared_type='NSSet*'/>
+</method>
+<method selector='acceptableStatusCodes' class_method='true'>
+<retval type='@' declared_type='NSIndexSet*'/>
+</method>
+<method selector='addAcceptableContentTypes:' class_method='true'>
+<arg index='0' type='@' declared_type='NSSet*' name='contentTypes'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='addAcceptableStatusCodes:' class_method='true'>
+<arg index='0' type='@' declared_type='NSIndexSet*' name='statusCodes'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='canProcessRequest:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='failureCallbackQueue'>
+<retval type='@' declared_type='dispatch_queue_t'/>
+</method>
+<method selector='hasAcceptableContentType'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='hasAcceptableStatusCode'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='response'>
+<retval type='@' declared_type='NSHTTPURLResponse*'/>
+</method>
+<method selector='setCompletionBlockWithSuccess:failure:'>
+<arg index='0' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='1' type='@?' declared_type='void (^)(AFHTTPRequestOperation *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='AFHTTPRequestOperation*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setFailureCallbackQueue:'>
+<arg index='0' type='@' declared_type='dispatch_queue_t' name='failureCallbackQueue'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setSuccessCallbackQueue:'>
+<arg index='0' type='@' declared_type='dispatch_queue_t' name='successCallbackQueue'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='successCallbackQueue'>
+<retval type='@' declared_type='dispatch_queue_t'/>
+</method>
+</class>
+<class name='AFImageRequestOperation'>
+<method selector='automaticallyInflatesResponseImage'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='imageRequestOperationWithRequest:imageProcessingBlock:success:failure:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='UIImage *(^)(UIImage *)' function_pointer='true' name='imageProcessingBlock'>
+<arg type='@' declared_type='UIImage*'/>
+<retval type='@' declared_type='UIImage*'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, UIImage *)' function_pointer='true' name='success'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='UIImage*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='imageRequestOperationWithRequest:success:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='void (^)(UIImage *)' function_pointer='true' name='success'>
+<arg type='@' declared_type='UIImage*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='imageScale'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='responseImage'>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='setAutomaticallyInflatesResponseImage:'>
+<arg index='0' type='B' declared_type='BOOL' name='automaticallyInflatesResponseImage'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setImageScale:'>
+<arg index='0' type='f' declared_type='CGFloat' name='imageScale'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='AFJSONRequestOperation'>
+<method selector='JSONReadingOptions'>
+<retval type='I' declared_type='NSJSONReadingOptions'/>
+</method>
+<method selector='JSONRequestOperationWithRequest:success:failure:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSError*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='responseJSON'>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='setJSONReadingOptions:'>
+<arg index='0' type='I' declared_type='NSJSONReadingOptions' name='JSONReadingOptions'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='AFNetworkActivityIndicatorManager'>
+<method selector='decrementActivityCount'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='incrementActivityCount'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='isEnabled'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='isNetworkActivityIndicatorVisible'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='setEnabled:'>
+<arg index='0' type='B' declared_type='BOOL' name='enabled'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='sharedManager' class_method='true'>
+<retval type='@' declared_type='id'/>
+</method>
+</class>
+<class name='AFPropertyListRequestOperation'>
+<method selector='propertyListReadOptions'>
+<retval type='I' declared_type='NSPropertyListReadOptions'/>
+</method>
+<method selector='propertyListRequestOperationWithRequest:success:failure:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, id)' function_pointer='true' name='success'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSError*'/>
+<arg type='@' declared_type='id'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='responsePropertyList'>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='setPropertyListReadOptions:'>
+<arg index='0' type='I' declared_type='NSPropertyListReadOptions' name='propertyListReadOptions'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='AFURLConnectionOperation'>
+<method selector='SSLPinningMode'>
+<retval type='i' declared_type='AFURLConnectionOperationSSLPinningMode'/>
+</method>
+<method selector='allowsInvalidSSLCertificate'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='credential'>
+<retval type='@' declared_type='NSURLCredential*'/>
+</method>
+<method selector='error'>
+<retval type='@' declared_type='NSError*'/>
+</method>
+<method selector='initWithRequest:'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='inputStream'>
+<retval type='@' declared_type='NSInputStream*'/>
+</method>
+<method selector='isPaused'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='outputStream'>
+<retval type='@' declared_type='NSOutputStream*'/>
+</method>
+<method selector='pause'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='request'>
+<retval type='@' declared_type='NSURLRequest*'/>
+</method>
+<method selector='response'>
+<retval type='@' declared_type='NSURLResponse*'/>
+</method>
+<method selector='responseData'>
+<retval type='@' declared_type='NSData*'/>
+</method>
+<method selector='responseString'>
+<retval type='@' declared_type='NSString*'/>
+</method>
+<method selector='responseStringEncoding'>
+<retval type='I' declared_type='NSStringEncoding'/>
+</method>
+<method selector='resume'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='runLoopModes'>
+<retval type='@' declared_type='NSSet*'/>
+</method>
+<method selector='setAllowsInvalidSSLCertificate:'>
+<arg index='0' type='B' declared_type='BOOL' name='allowsInvalidSSLCertificate'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setCacheResponseBlock:'>
+<arg index='0' type='@?' declared_type='NSCachedURLResponse *(^)(NSURLConnection *, NSCachedURLResponse *)' function_pointer='true' name='block'>
+<arg type='@' declared_type='NSURLConnection*'/>
+<arg type='@' declared_type='NSCachedURLResponse*'/>
+<retval type='@' declared_type='NSCachedURLResponse*'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setCredential:'>
+<arg index='0' type='@' declared_type='NSURLCredential*' name='credential'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDownloadProgressBlock:'>
+<arg index='0' type='@?' declared_type='void (^)(NSUInteger, long long, long long)' function_pointer='true' name='block'>
+<arg type='I' declared_type='NSUInteger'/>
+<arg type='q' declared_type='long long'/>
+<arg type='q' declared_type='long long'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setInputStream:'>
+<arg index='0' type='@' declared_type='NSInputStream*' name='inputStream'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOutputStream:'>
+<arg index='0' type='@' declared_type='NSOutputStream*' name='outputStream'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setRedirectResponseBlock:'>
+<arg index='0' type='@?' declared_type='NSURLRequest *(^)(NSURLConnection *, NSURLRequest *, NSURLResponse *)' function_pointer='true' name='block'>
+<arg type='@' declared_type='NSURLConnection*'/>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSURLResponse*'/>
+<retval type='@' declared_type='NSURLRequest*'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setRunLoopModes:'>
+<arg index='0' type='@' declared_type='NSSet*' name='runLoopModes'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setSSLPinningMode:'>
+<arg index='0' type='i' declared_type='AFURLConnectionOperationSSLPinningMode' name='SSLPinningMode'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setShouldExecuteAsBackgroundTaskWithExpirationHandler:'>
+<arg index='0' type='@?' declared_type='void (^)(void)' function_pointer='true' name='handler'>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setShouldUseCredentialStorage:'>
+<arg index='0' type='B' declared_type='BOOL' name='shouldUseCredentialStorage'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setUploadProgressBlock:'>
+<arg index='0' type='@?' declared_type='void (^)(NSUInteger, long long, long long)' function_pointer='true' name='block'>
+<arg type='I' declared_type='NSUInteger'/>
+<arg type='q' declared_type='long long'/>
+<arg type='q' declared_type='long long'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setUserInfo:'>
+<arg index='0' type='@' declared_type='NSDictionary*' name='userInfo'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setWillSendRequestForAuthenticationChallengeBlock:'>
+<arg index='0' type='@?' declared_type='void (^)(NSURLConnection *, NSURLAuthenticationChallenge *)' function_pointer='true' name='block'>
+<arg type='@' declared_type='NSURLConnection*'/>
+<arg type='@' declared_type='NSURLAuthenticationChallenge*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='shouldUseCredentialStorage'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='userInfo'>
+<retval type='@' declared_type='NSDictionary*'/>
+</method>
+</class>
+<class name='AFXMLRequestOperation'>
+<method selector='XMLParserRequestOperationWithRequest:success:failure:' class_method='true'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSXMLParser *)' function_pointer='true' name='success'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSXMLParser*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='2' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, NSXMLParser *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSError*'/>
+<arg type='@' declared_type='NSXMLParser*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='responseXMLParser'>
+<retval type='@' declared_type='NSXMLParser*'/>
+</method>
+</class>
+<class name='FUIAlertView'>
+<method selector='addButtonWithTitle:'>
+<arg index='0' type='@' declared_type='NSString*' name='title'/>
+<retval type='i' declared_type='NSInteger'/>
+</method>
+<method selector='alertContainer'>
+<retval type='@' declared_type='UIView*'/>
+</method>
+<method selector='animationDuration'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='backgroundOverlay'>
+<retval type='@' declared_type='UIView*'/>
+</method>
+<method selector='buttonSpacing'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='buttonTitleAtIndex:'>
+<arg index='0' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='@' declared_type='NSString*'/>
+</method>
+<method selector='buttons'>
+<retval type='@' declared_type='NSMutableArray*'/>
+</method>
+<method selector='cancelButtonIndex'>
+<retval type='i' declared_type='NSInteger'/>
+</method>
+<method selector='defaultButtonColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='defaultButtonFont'>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+<method selector='defaultButtonShadowColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='defaultButtonTitleColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='delegate'>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='dismissWithClickedButtonIndex:animated:'>
+<arg index='0' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<arg index='1' type='B' declared_type='BOOL' name='animated'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method sentinel='0' selector='initWithTitle:message:delegate:cancelButtonTitle:otherButtonTitles:' variadic='true'>
+<arg index='0' type='@' declared_type='NSString*' name='title'/>
+<arg index='1' type='@' declared_type='NSString*' name='message'/>
+<arg index='2' type='@' declared_type='id' name='delegate'/>
+<arg index='3' type='@' declared_type='NSString*' name='cancelButtonTitle'/>
+<arg index='4' type='@' declared_type='NSString*' name='otherButtonTitles'/>
+<retval type='@' declared_type='id'/>
+</method>
+<method selector='isVisible'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='message'>
+<retval type='@' declared_type='NSString*'/>
+</method>
+<method selector='messageLabel'>
+<retval type='@' declared_type='UILabel*'/>
+</method>
+<method selector='numberOfButtons'>
+<retval type='i' declared_type='NSInteger'/>
+</method>
+<method selector='setAlertContainer:'>
+<arg index='0' type='@' declared_type='UIView*' name='alertContainer'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setAnimationDuration:'>
+<arg index='0' type='f' declared_type='CGFloat' name='animationDuration'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setBackgroundOverlay:'>
+<arg index='0' type='@' declared_type='UIView*' name='backgroundOverlay'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setButtonSpacing:'>
+<arg index='0' type='f' declared_type='CGFloat' name='buttonSpacing'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setButtons:'>
+<arg index='0' type='@' declared_type='NSMutableArray*' name='buttons'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setCancelButtonIndex:'>
+<arg index='0' type='i' declared_type='NSInteger' name='cancelButtonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultButtonColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='defaultButtonColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultButtonFont:'>
+<arg index='0' type='@' declared_type='UIFont*' name='defaultButtonFont'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultButtonShadowColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='defaultButtonShadowColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDefaultButtonTitleColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='defaultButtonTitleColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDelegate:'>
+<arg index='0' type='@' declared_type='id' name='delegate'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setMessage:'>
+<arg index='0' type='@' declared_type='NSString*' name='message'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setMessageLabel:'>
+<arg index='0' type='@' declared_type='UILabel*' name='messageLabel'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setTitle:'>
+<arg index='0' type='@' declared_type='NSString*' name='title'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setTitleLabel:'>
+<arg index='0' type='@' declared_type='UILabel*' name='titleLabel'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='show'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='title'>
+<retval type='@' declared_type='NSString*'/>
+</method>
+<method selector='titleLabel'>
+<retval type='@' declared_type='UILabel*'/>
+</method>
+</class>
+<class name='FUIButton'>
+<method selector='buttonColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='cornerRadius'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='setButtonColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='buttonColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setCornerRadius:'>
+<arg index='0' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setShadowColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='shadowColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setShadowHeight:'>
+<arg index='0' type='f' declared_type='CGFloat' name='shadowHeight'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='shadowColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='shadowHeight'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+</class>
+<class name='FUISegmentedControl'>
+<method selector='cornerRadius'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='deselectedColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='deselectedFont'>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+<method selector='deselectedFontColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='dividerColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='selectedColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='selectedFont'>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+<method selector='selectedFontColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='setCornerRadius:'>
+<arg index='0' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDeselectedColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='deselectedColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDeselectedFont:'>
+<arg index='0' type='@' declared_type='UIFont*' name='deselectedFont'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDeselectedFontColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='deselectedFontColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setDividerColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='dividerColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setSelectedColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='selectedColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setSelectedFont:'>
+<arg index='0' type='@' declared_type='UIFont*' name='selectedFont'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setSelectedFontColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='selectedFontColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='FUISwitch'>
+<method selector='highlightedColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='isOn'>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='offBackgroundColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='offColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='offLabel'>
+<retval type='@' declared_type='UILabel*'/>
+</method>
+<method selector='onBackgroundColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='onColor'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='onLabel'>
+<retval type='@' declared_type='UILabel*'/>
+</method>
+<method selector='percentOn'>
+<retval type='f' declared_type='CGFloat'/>
+</method>
+<method selector='setHighlightedColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='highlightedColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOffBackgroundColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='offBackgroundColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOffColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='offColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOffLabel:'>
+<arg index='0' type='@' declared_type='UILabel*' name='offLabel'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOn:'>
+<arg index='0' type='B' declared_type='BOOL' name='on'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOn:animated:'>
+<arg index='0' type='B' declared_type='BOOL' name='on'/>
+<arg index='1' type='B' declared_type='BOOL' name='animated'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOnBackgroundColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='onBackgroundColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOnColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='onColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setOnLabel:'>
+<arg index='0' type='@' declared_type='UILabel*' name='onLabel'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setPercentOn:'>
+<arg index='0' type='f' declared_type='CGFloat' name='percentOn'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='alertView:clickedButtonAtIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='alertView:didDismissWithButtonIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='alertView:willDismissWithButtonIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='appendPartWithFileData:name:fileName:mimeType:'>
+<arg index='0' type='@' declared_type='NSData*' name='data'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='@' declared_type='NSString*' name='mimeType'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='appendPartWithFileURL:name:error:'>
+<arg index='0' type='@' declared_type='NSURL*' name='fileURL'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='^@' declared_type='NSError**' name='error'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='appendPartWithFileURL:name:fileName:mimeType:error:'>
+<arg index='0' type='@' declared_type='NSURL*' name='fileURL'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='@' declared_type='NSString*' name='mimeType'/>
+<arg index='4' type='^@' declared_type='NSError**' name='error'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method selector='appendPartWithFormData:name:'>
+<arg index='0' type='@' declared_type='NSData*' name='data'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='appendPartWithHeaders:body:'>
+<arg index='0' type='@' declared_type='NSDictionary*' name='headers'/>
+<arg index='1' type='@' declared_type='NSData*' name='body'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='appendPartWithInputStream:name:fileName:length:mimeType:'>
+<arg index='0' type='@' declared_type='NSInputStream*' name='inputStream'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='Q' declared_type='unsigned long long' name='length'/>
+<arg index='4' type='@' declared_type='NSString*' name='mimeType'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='didPresentAlertView:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='throttleBandwidthWithPacketSize:delay:'>
+<arg index='0' type='I' declared_type='NSUInteger' name='numberOfBytes'/>
+<arg index='1' type='d' declared_type='NSTimeInterval' name='delay'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='willPresentAlertView:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UIBarButtonItem'>
+<method selector='configureFlatButtonsWithColor:highlightedColor:cornerRadius:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='@' declared_type='UIColor*' name='highlightedColor'/>
+<arg index='2' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='configureFlatButtonsWithColor:highlightedColor:cornerRadius:whenContainedIn:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='@' declared_type='UIColor*' name='highlightedColor'/>
+<arg index='2' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<arg index='3' type='#' declared_type='Class*' name='ContainerClass'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='removeTitleShadow'>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UIColor'>
+<method selector='alizarinColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='amethystColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='asbestosColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='belizeHoleColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='blendedColorWithForegroundColor:backgroundColor:percentBlend:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='foregroundColor'/>
+<arg index='1' type='@' declared_type='UIColor*' name='backgroundColor'/>
+<arg index='2' type='f' declared_type='CGFloat' name='percentBlend'/>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='carrotColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='cloudsColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='concreteColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='emerlandColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='greenSeaColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='midnightBlueColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='nephritisColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='peterRiverColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='pomegranateColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='pumpkinColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='silverColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='sunflowerColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='tangerineColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='turquoiseColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='wetAsphaltColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+<method selector='wisteriaColor' class_method='true'>
+<retval type='@' declared_type='UIColor*'/>
+</method>
+</class>
+<class name='UIFont'>
+<method selector='boldFlatFontOfSize:' class_method='true'>
+<arg index='0' type='f' declared_type='CGFloat' name='size'/>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+<method selector='flatFontOfSize:' class_method='true'>
+<arg index='0' type='f' declared_type='CGFloat' name='size'/>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+<method selector='italicFlatFontOfSize:' class_method='true'>
+<arg index='0' type='f' declared_type='CGFloat' name='size'/>
+<retval type='@' declared_type='UIFont*'/>
+</method>
+</class>
+<class name='UIImage'>
+<method selector='backButtonImageWithColor:barMetrics:cornerRadius:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='i' declared_type='UIBarMetrics' name='metrics'/>
+<arg index='2' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='buttonImageWithColor:cornerRadius:shadowColor:shadowInsets:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<arg index='2' type='@' declared_type='UIColor*' name='shadowColor'/>
+<arg index='3' type='{UIEdgeInsets=ffff}' declared_type='UIEdgeInsets' name='shadowInsets'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='circularImageWithColor:size:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='{CGSize=ff}' declared_type='CGSize' name='size'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='imageWithColor:cornerRadius:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='f' declared_type='CGFloat' name='cornerRadius'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='imageWithMinimumSize:'>
+<arg index='0' type='{CGSize=ff}' declared_type='CGSize' name='size'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='stepperMinusImageWithColor:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+<method selector='stepperPlusImageWithColor:' class_method='true'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<retval type='@' declared_type='UIImage*'/>
+</method>
+</class>
+<class name='UIImageView'>
+<method selector='cancelImageRequestOperation'>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setImageWithURL:'>
+<arg index='0' type='@' declared_type='NSURL*' name='url'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setImageWithURL:placeholderImage:'>
+<arg index='0' type='@' declared_type='NSURL*' name='url'/>
+<arg index='1' type='@' declared_type='UIImage*' name='placeholderImage'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method selector='setImageWithURLRequest:placeholderImage:success:failure:'>
+<arg index='0' type='@' declared_type='NSURLRequest*' name='urlRequest'/>
+<arg index='1' type='@' declared_type='UIImage*' name='placeholderImage'/>
+<arg index='2' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, UIImage *)' function_pointer='true' name='success'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='UIImage*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<arg index='3' type='@?' declared_type='void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *)' function_pointer='true' name='failure'>
+<arg type='@' declared_type='NSURLRequest*'/>
+<arg type='@' declared_type='NSHTTPURLResponse*'/>
+<arg type='@' declared_type='NSError*'/>
+<retval type='v' declared_type='void'/>
+</arg>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UINavigationBar'>
+<method selector='configureFlatNavigationBarWithColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UIProgressView'>
+<method selector='configureFlatProgressViewWithTrackColor:progressColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='trackColor'/>
+<arg index='1' type='@' declared_type='UIColor*' name='progressColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UISlider'>
+<method selector='configureFlatSliderWithTrackColor:progressColor:thumbColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='trackColor'/>
+<arg index='1' type='@' declared_type='UIColor*' name='progressColor'/>
+<arg index='2' type='@' declared_type='UIColor*' name='thumbColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UIStepper'>
+<method selector='configureFlatStepperWithColor:highlightedColor:disabledColor:iconColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='@' declared_type='UIColor*' name='highlightedColor'/>
+<arg index='2' type='@' declared_type='UIColor*' name='disabledColor'/>
+<arg index='3' type='@' declared_type='UIColor*' name='iconColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<class name='UITabBar'>
+<method selector='configureFlatTabBarWithColor:selectedColor:'>
+<arg index='0' type='@' declared_type='UIColor*' name='color'/>
+<arg index='1' type='@' declared_type='UIColor*' name='selectedColor'/>
+<retval type='v' declared_type='void'/>
+</method>
+</class>
+<informal_protocol name='AFMultipartFormData'>
+<method type='v24@0:4@8@12@16@20' selector='appendPartWithFileData:name:fileName:mimeType:'>
+<arg index='0' type='@' declared_type='NSData*' name='data'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='@' declared_type='NSString*' name='mimeType'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='B20@0:4@8@12^@16' selector='appendPartWithFileURL:name:error:'>
+<arg index='0' type='@' declared_type='NSURL*' name='fileURL'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='^@' declared_type='NSError**' name='error'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method type='B28@0:4@8@12@16@20^@24' selector='appendPartWithFileURL:name:fileName:mimeType:error:'>
+<arg index='0' type='@' declared_type='NSURL*' name='fileURL'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='@' declared_type='NSString*' name='mimeType'/>
+<arg index='4' type='^@' declared_type='NSError**' name='error'/>
+<retval type='B' declared_type='BOOL'/>
+</method>
+<method type='v16@0:4@8@12' selector='appendPartWithFormData:name:'>
+<arg index='0' type='@' declared_type='NSData*' name='data'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v16@0:4@8@12' selector='appendPartWithHeaders:body:'>
+<arg index='0' type='@' declared_type='NSDictionary*' name='headers'/>
+<arg index='1' type='@' declared_type='NSData*' name='body'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v32@0:4@8@12@16Q20@28' selector='appendPartWithInputStream:name:fileName:length:mimeType:'>
+<arg index='0' type='@' declared_type='NSInputStream*' name='inputStream'/>
+<arg index='1' type='@' declared_type='NSString*' name='name'/>
+<arg index='2' type='@' declared_type='NSString*' name='fileName'/>
+<arg index='3' type='Q' declared_type='unsigned long long' name='length'/>
+<arg index='4' type='@' declared_type='NSString*' name='mimeType'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v20@0:4I8d12' selector='throttleBandwidthWithPacketSize:delay:'>
+<arg index='0' type='I' declared_type='NSUInteger' name='numberOfBytes'/>
+<arg index='1' type='d' declared_type='NSTimeInterval' name='delay'/>
+<retval type='v' declared_type='void'/>
+</method>
+</informal_protocol>
+<informal_protocol name='FUIAlertViewDelegate'>
+<method type='v16@0:4@8i12' selector='alertView:clickedButtonAtIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v16@0:4@8i12' selector='alertView:didDismissWithButtonIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v16@0:4@8i12' selector='alertView:willDismissWithButtonIndex:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<arg index='1' type='i' declared_type='NSInteger' name='buttonIndex'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v12@0:4@8' selector='didPresentAlertView:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<retval type='v' declared_type='void'/>
+</method>
+<method type='v12@0:4@8' selector='willPresentAlertView:'>
+<arg index='0' type='@' declared_type='FUIAlertView*' name='alertView'/>
+<retval type='v' declared_type='void'/>
+</method>
+</informal_protocol>
+</signatures>
